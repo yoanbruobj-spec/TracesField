@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { useLanguage } from "@/lib/LanguageContext";
 import {
   LightningIcon,
   BadgeCheckIcon,
@@ -39,26 +40,28 @@ function BenefitCard({ icon, title, description, index }: { icon: React.ReactNod
 }
 
 export default function Home() {
+  const { t } = useLanguage();
+
   const benefits = [
     {
       icon: <LightningIcon size={56} />,
-      title: "Gain de temps immédiat",
-      description: "Réduisez de 80% le temps passé sur les rapports et tâches administratives. Vos techniciens se concentrent sur le terrain.",
+      title: t("home.benefits.benefit1.title"),
+      description: t("home.benefits.benefit1.description"),
     },
     {
       icon: <BadgeCheckIcon size={56} />,
-      title: "Conformité garantie",
-      description: "Traçabilité complète, rapports conformes aux normes, historique consultable à tout moment. Zéro oubli, zéro stress.",
+      title: t("home.benefits.benefit2.title"),
+      description: t("home.benefits.benefit2.description"),
     },
     {
       icon: <TargetIcon size={56} />,
-      title: "100% adapté à vous",
-      description: "Pas de logiciel générique. On développe exactement ce dont vous avez besoin, avec votre process, vos documents.",
+      title: t("home.benefits.benefit3.title"),
+      description: t("home.benefits.benefit3.description"),
     },
     {
       icon: <DeviceConnectIcon size={56} />,
-      title: "Terrain et bureau connectés",
-      description: "QR codes, synchronisation temps réel, accès mobile. L'info circule instantanément entre vos équipes et le bureau.",
+      title: t("home.benefits.benefit4.title"),
+      description: t("home.benefits.benefit4.description"),
     },
   ];
 
@@ -74,26 +77,24 @@ export default function Home() {
             className="text-center max-w-4xl mx-auto"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
-              Solutions sur-mesure pour{" "}
-              <span className="text-red-600">automatiser vos tâches</span> et simplifier vos interventions
+              {t("home.hero.title")}{" "}
+              <span className="text-red-600">{t("home.hero.titleHighlight")}</span> {t("home.hero.titleEnd")}
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
-              TraceField développe des outils digitaux personnalisés pour les artisans et PME : rapports d'intervention intelligents,
-              gestion de planning, traçabilité QR code, suivi client et stock. Gagnez du temps, réduisez les erreurs,
-              concentrez-vous sur votre métier.
+              {t("home.hero.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
                 className="bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-red-700 transition-colors shadow-lg hover:shadow-xl"
               >
-                Prendre rendez-vous
+                {t("home.hero.ctaPrimary")}
               </Link>
               <Link
                 href="/solutions"
                 className="bg-white text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors border-2 border-gray-200"
               >
-                Découvrir les solutions
+                {t("home.hero.ctaSecondary")}
               </Link>
             </div>
           </motion.div>
@@ -111,10 +112,10 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-              Pourquoi choisir <span className="text-red-600">TraceField</span> ?
+              {t("home.benefits.title")} <span className="text-red-600">{t("home.benefits.titleHighlight")}</span> ?
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Des solutions pensées pour vous, par quelqu'un qui connaît votre réalité terrain
+              {t("home.benefits.subtitle")}
             </p>
           </motion.div>
 
@@ -136,16 +137,16 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Prêt à simplifier votre quotidien ?
+              {t("home.cta.title")}
             </h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-              Discutons de vos besoins et voyons ensemble comment TraceField peut vous faire gagner du temps et de l'argent.
+              {t("home.cta.subtitle")}
             </p>
             <Link
               href="/contact"
               className="inline-block bg-white text-red-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl"
             >
-              Demander une démo gratuite
+              {t("home.cta.button")}
             </Link>
           </motion.div>
         </div>
@@ -162,22 +163,22 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-              7 modules pour transformer votre activité
+              {t("home.modules.title")}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choisissez uniquement les modules dont vous avez besoin. Commencez petit, évoluez à votre rythme.
+              {t("home.modules.subtitle")}
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {[
-              { icon: <ReportIcon className="text-red-600" size={40} />, title: "Rapports d'intervention intelligents" },
-              { icon: <CalendarIcon className="text-red-600" size={40} />, title: "Gestion de planning équipes" },
-              { icon: <BoxIcon className="text-red-600" size={40} />, title: "Gestion de stock avec QR" },
-              { icon: <UsersIcon className="text-red-600" size={40} />, title: "Suivi clients & contrats" },
-              { icon: <ToolIcon className="text-red-600" size={40} />, title: "Suivi matériel & consommables" },
-              { icon: <GlobeIcon className="text-red-600" size={40} />, title: "Site interne / Intranet" },
-              { icon: <AutomationIcon className="text-red-600" size={40} />, title: "Automatisation tâches répétitives" },
+              { icon: <ReportIcon className="text-red-600" size={40} />, title: t("home.modules.module1") },
+              { icon: <CalendarIcon className="text-red-600" size={40} />, title: t("home.modules.module2") },
+              { icon: <BoxIcon className="text-red-600" size={40} />, title: t("home.modules.module3") },
+              { icon: <UsersIcon className="text-red-600" size={40} />, title: t("home.modules.module4") },
+              { icon: <ToolIcon className="text-red-600" size={40} />, title: t("home.modules.module5") },
+              { icon: <GlobeIcon className="text-red-600" size={40} />, title: t("home.modules.module6") },
+              { icon: <AutomationIcon className="text-red-600" size={40} />, title: t("home.modules.module7") },
             ].map((module, index) => (
               <motion.div
                 key={index}
@@ -198,7 +199,7 @@ export default function Home() {
               href="/solutions"
               className="inline-block bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-red-700 transition-colors shadow-lg"
             >
-              Découvrir tous les modules en détail
+              {t("home.modules.cta")}
             </Link>
           </div>
         </div>

@@ -3,10 +3,13 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/lib/LanguageContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,10 +21,10 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { href: "/", label: "Accueil" },
-    { href: "/a-propos", label: "À propos" },
-    { href: "/solutions", label: "Solutions" },
-    { href: "/contact", label: "Contact" },
+    { href: "/", label: t("nav.home") },
+    { href: "/a-propos", label: t("nav.about") },
+    { href: "/solutions", label: t("nav.solutions") },
+    { href: "/contact", label: t("nav.contact") },
   ];
 
   return (
@@ -54,13 +57,16 @@ export default function Header() {
             ))}
           </ul>
 
-          {/* CTA Button */}
-          <Link
-            href="/contact"
-            className="hidden md:block bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors font-medium"
-          >
-            Prendre rendez-vous
-          </Link>
+          {/* Right Section: Language Switcher & CTA */}
+          <div className="hidden md:flex items-center space-x-4">
+            <LanguageSwitcher />
+            <Link
+              href="/contact"
+              className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors font-medium"
+            >
+              {t("nav.cta")}
+            </Link>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -113,13 +119,16 @@ export default function Header() {
                   </Link>
                 </li>
               ))}
+              <li className="pt-4 border-t border-gray-200">
+                <LanguageSwitcher />
+              </li>
               <li>
                 <Link
                   href="/contact"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors font-medium text-center"
                 >
-                  Prendre rendez-vous
+                  {t("nav.cta")}
                 </Link>
               </li>
             </ul>

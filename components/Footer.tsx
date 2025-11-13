@@ -1,7 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
 
   return (
     <footer className="bg-gray-900 text-white">
@@ -11,32 +15,32 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4 text-red-600">TraceField</h3>
             <p className="text-gray-300 mb-4">
-              Solutions digitales sur-mesure pour automatiser et simplifier les tâches des artisans et PME.
+              {t("footer.description")}
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Navigation</h4>
+            <h4 className="text-lg font-semibold mb-4">{t("footer.navigation")}</h4>
             <ul className="space-y-2">
               <li>
                 <Link href="/" className="text-gray-300 hover:text-red-600 transition-colors">
-                  Accueil
+                  {t("nav.home")}
                 </Link>
               </li>
               <li>
                 <Link href="/a-propos" className="text-gray-300 hover:text-red-600 transition-colors">
-                  À propos
+                  {t("nav.about")}
                 </Link>
               </li>
               <li>
                 <Link href="/solutions" className="text-gray-300 hover:text-red-600 transition-colors">
-                  Solutions
+                  {t("nav.solutions")}
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="text-gray-300 hover:text-red-600 transition-colors">
-                  Contact
+                  {t("nav.contact")}
                 </Link>
               </li>
             </ul>
@@ -44,7 +48,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact</h4>
+            <h4 className="text-lg font-semibold mb-4">{t("footer.contact")}</h4>
             <ul className="space-y-2 text-gray-300">
               <li className="flex items-center space-x-2">
                 <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,7 +79,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; {currentYear} TraceField. Tous droits réservés.</p>
+          <p>&copy; {currentYear} TraceField. {t("footer.copyright")}</p>
         </div>
       </div>
     </footer>

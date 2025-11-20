@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 type FormData = {
   name: string;
@@ -16,6 +17,7 @@ type FormData = {
 };
 
 export default function ContactPage() {
+  const { t } = useLanguage();
   const {
     register,
     handleSubmit,
@@ -65,13 +67,13 @@ export default function ContactPage() {
   };
 
   const modulesList = [
-    "Rapports d'intervention",
-    "Gestion de planning",
-    "Gestion de stock",
-    "Suivi clients",
-    "Suivi matériel",
-    "Intranet",
-    "Automatisation",
+    t("home.modules.module1"),
+    t("home.modules.module2"),
+    t("home.modules.module3"),
+    t("home.modules.module4"),
+    t("home.modules.module5"),
+    t("home.modules.module6"),
+    t("home.modules.module7"),
     "Autre",
   ];
 
@@ -87,13 +89,13 @@ export default function ContactPage() {
             className="text-center"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
-              Parlons de votre <span className="text-red-600">projet</span>
+              {t("contact.hero.title")} <span className="text-red-600">{t("contact.hero.titleHighlight")}</span>
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed mb-4">
-              Vous perdez du temps sur des tâches répétitives ? Vos outils actuels ne vous conviennent pas ?
+              {t("contact.hero.subtitle1")}
             </p>
             <p className="text-lg text-gray-600">
-              Échangeons 30 minutes pour comprendre vos besoins et voir comment TraceField peut vous aider.
+              {t("contact.hero.subtitle2")}
             </p>
           </motion.div>
         </div>
@@ -110,7 +112,7 @@ export default function ContactPage() {
               transition={{ duration: 0.6 }}
               className="lg:col-span-1"
             >
-              <h2 className="text-2xl font-bold mb-6 text-gray-900">Contact direct</h2>
+              <h2 className="text-2xl font-bold mb-6 text-gray-900">{t("contact.direct.title")}</h2>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="bg-red-100 p-3 rounded-lg">
@@ -119,7 +121,7 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
+                    <h3 className="font-semibold text-gray-900 mb-1">{t("contact.direct.email")}</h3>
                     <a href="mailto:tracefield31@gmail.com" className="text-gray-600 hover:text-red-600 transition-colors">
                       tracefield31@gmail.com
                     </a>
@@ -133,7 +135,7 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Téléphone</h3>
+                    <h3 className="font-semibold text-gray-900 mb-1">{t("contact.direct.phone")}</h3>
                     <a href="tel:0769806334" className="text-gray-600 hover:text-red-600 transition-colors">
                       07 69 80 63 34
                     </a>
@@ -148,16 +150,16 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Zone d'intervention</h3>
-                    <p className="text-gray-600">France entière</p>
+                    <h3 className="font-semibold text-gray-900 mb-1">{t("contact.direct.zone")}</h3>
+                    <p className="text-gray-600">{t("contact.direct.zoneValue")}</p>
                   </div>
                 </div>
               </div>
 
               <div className="mt-8 p-6 bg-gray-50 rounded-xl">
-                <h3 className="font-semibold text-gray-900 mb-2">Réponse rapide garantie</h3>
+                <h3 className="font-semibold text-gray-900 mb-2">{t("contact.direct.guarantee")}</h3>
                 <p className="text-gray-600 text-sm">
-                  Nous nous engageons à vous répondre sous 24h ouvrées pour échanger sur votre projet.
+                  {t("contact.direct.guaranteeText")}
                 </p>
               </div>
             </motion.div>
@@ -170,16 +172,16 @@ export default function ContactPage() {
               className="lg:col-span-2"
             >
               <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
-                <h2 className="text-2xl font-bold mb-6 text-gray-900">Demander un rendez-vous</h2>
+                <h2 className="text-2xl font-bold mb-6 text-gray-900">{t("contact.form.title")}</h2>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   {/* Nom / Prénom */}
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      Nom / Prénom *
+                      {t("contact.form.name")} *
                     </label>
                     <input
-                      {...register("name", { required: "Ce champ est requis" })}
+                      {...register("name", { required: t("contact.form.required") })}
                       type="text"
                       id="name"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all"
@@ -190,10 +192,10 @@ export default function ContactPage() {
                   {/* Entreprise */}
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                      Entreprise *
+                      {t("contact.form.company")} *
                     </label>
                     <input
-                      {...register("company", { required: "Ce champ est requis" })}
+                      {...register("company", { required: t("contact.form.required") })}
                       type="text"
                       id="company"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all"
@@ -204,14 +206,14 @@ export default function ContactPage() {
                   {/* Email */}
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      Email *
+                      {t("contact.form.email")} *
                     </label>
                     <input
                       {...register("email", {
-                        required: "Ce champ est requis",
+                        required: t("contact.form.required"),
                         pattern: {
                           value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                          message: "Email invalide",
+                          message: t("contact.form.invalidEmail"),
                         },
                       })}
                       type="email"
@@ -224,10 +226,10 @@ export default function ContactPage() {
                   {/* Téléphone */}
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                      Téléphone *
+                      {t("contact.form.phone")} *
                     </label>
                     <input
-                      {...register("phone", { required: "Ce champ est requis" })}
+                      {...register("phone", { required: t("contact.form.required") })}
                       type="tel"
                       id="phone"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all"
@@ -238,14 +240,14 @@ export default function ContactPage() {
                   {/* Nombre d'employés */}
                   <div>
                     <label htmlFor="employees" className="block text-sm font-medium text-gray-700 mb-2">
-                      Nombre d'employés
+                      {t("contact.form.employees")}
                     </label>
                     <select
                       {...register("employees")}
                       id="employees"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all"
                     >
-                      <option value="">Sélectionner</option>
+                      <option value="">{t("contact.form.employeesPlaceholder")}</option>
                       <option value="1-5">1-5</option>
                       <option value="6-10">6-10</option>
                       <option value="11-20">11-20</option>
@@ -257,7 +259,7 @@ export default function ContactPage() {
                   {/* Modules d'intérêt */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-3">
-                      Modules d'intérêt
+                      {t("contact.form.modules")}
                     </label>
                     <div className="grid grid-cols-2 gap-3">
                       {modulesList.map((module) => (
@@ -277,32 +279,36 @@ export default function ContactPage() {
                   {/* Description du besoin */}
                   <div>
                     <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
-                      Description du besoin
+                      {t("contact.form.description")}
                     </label>
                     <textarea
                       {...register("description")}
                       id="description"
                       rows={4}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all resize-none"
-                      placeholder="Décrivez-nous brièvement votre projet et vos besoins..."
+                      placeholder={t("contact.form.descriptionPlaceholder")}
                     ></textarea>
                   </div>
 
                   {/* Préférence de contact */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-3">
-                      Préférence de contact
+                      {t("contact.form.contactPref")}
                     </label>
                     <div className="flex flex-wrap gap-4">
-                      {["Téléphone", "Email", "Visio"].map((pref) => (
-                        <label key={pref} className="flex items-center space-x-2 cursor-pointer">
+                      {[
+                        { value: "Téléphone", label: t("contact.form.contactPrefPhone") },
+                        { value: "Email", label: t("contact.form.contactPrefEmail") },
+                        { value: "Visio", label: t("contact.form.contactPrefVisio") }
+                      ].map((pref) => (
+                        <label key={pref.value} className="flex items-center space-x-2 cursor-pointer">
                           <input
                             {...register("contactPreference")}
                             type="radio"
-                            value={pref}
+                            value={pref.value}
                             className="w-4 h-4 text-red-600 border-gray-300 focus:ring-red-600"
                           />
-                          <span className="text-sm text-gray-700">{pref}</span>
+                          <span className="text-sm text-gray-700">{pref.label}</span>
                         </label>
                       ))}
                     </div>
@@ -311,15 +317,15 @@ export default function ContactPage() {
                   {/* Messages de statut */}
                   {submitStatus === "success" && (
                     <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-                      <p className="text-green-800 font-medium">✅ Merci ! Votre message a été envoyé avec succès.</p>
-                      <p className="text-green-700 text-sm mt-1">Nous vous contacterons sous 24h.</p>
+                      <p className="text-green-800 font-medium">✅ {t("contact.form.successTitle")}</p>
+                      <p className="text-green-700 text-sm mt-1">{t("contact.form.successText")}</p>
                     </div>
                   )}
 
                   {submitStatus === "error" && (
                     <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
-                      <p className="text-red-800 font-medium">❌ Une erreur est survenue.</p>
-                      <p className="text-red-700 text-sm mt-1">Veuillez réessayer ou nous contacter directement.</p>
+                      <p className="text-red-800 font-medium">❌ {t("contact.form.errorTitle")}</p>
+                      <p className="text-red-700 text-sm mt-1">{t("contact.form.errorText")}</p>
                     </div>
                   )}
 
@@ -329,7 +335,7 @@ export default function ContactPage() {
                     disabled={isSubmitting}
                     className="w-full bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-red-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
                   >
-                    {isSubmitting ? "Envoi en cours..." : "Demander un rendez-vous"}
+                    {isSubmitting ? t("contact.form.submitting") : t("contact.form.submit")}
                   </button>
                 </form>
               </div>

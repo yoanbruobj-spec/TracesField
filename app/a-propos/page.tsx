@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
+import { useLanguage } from "@/lib/LanguageContext";
 import {
   ExperienceIcon,
   InnovationIcon,
@@ -28,26 +29,28 @@ function Section({ children, delay = 0 }: { children: React.ReactNode; delay?: n
 }
 
 export default function AboutPage() {
+  const { t } = useLanguage();
+
   const approaches = [
     {
       icon: <ExperienceIcon className="text-red-600" size={56} />,
-      title: "On comprend votre métier",
-      description: "Expérience terrain dans la maintenance et les interventions techniques",
+      title: t("about.approach.item1.title"),
+      description: t("about.approach.item1.description"),
     },
     {
       icon: <InnovationIcon className="text-red-600" size={56} />,
-      title: "Du sur-mesure intelligent",
-      description: "Chaque entreprise est unique, votre outil aussi",
+      title: t("about.approach.item2.title"),
+      description: t("about.approach.item2.description"),
     },
     {
       icon: <RocketIcon className="text-red-600" size={56} />,
-      title: "Développement agile",
-      description: "On construit ensemble, étape par étape",
+      title: t("about.approach.item3.title"),
+      description: t("about.approach.item3.description"),
     },
     {
       icon: <HandshakeIcon className="text-red-600" size={56} />,
-      title: "Accompagnement complet",
-      description: "De l'analyse de vos besoins à la formation de vos équipes",
+      title: t("about.approach.item4.title"),
+      description: t("about.approach.item4.description"),
     },
   ];
 
@@ -63,10 +66,10 @@ export default function AboutPage() {
             className="text-center"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
-              À propos de <span className="text-red-600">TraceField</span>
+              {t("about.hero.title")} <span className="text-red-600">{t("about.hero.titleHighlight")}</span>
             </h1>
             <p className="text-xl text-gray-600">
-              Née d'une expérience terrain, conçue pour votre réalité
+              {t("about.hero.subtitle")}
             </p>
           </motion.div>
         </div>
@@ -77,17 +80,14 @@ export default function AboutPage() {
         <div className="container mx-auto max-w-4xl">
           <Section>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-              Qui sommes-nous ?
+              {t("about.who.title")}
             </h2>
             <div className="prose prose-lg max-w-none">
               <p className="text-gray-600 leading-relaxed mb-6">
-                TraceField est née d'une expérience terrain. En tant que technicien en maintenance de systèmes de détection gaz,
-                j'ai vécu au quotidien les mêmes galères que vous : rapports chronophages, traçabilité compliquée, outils
-                inadaptés qui ralentissent plus qu'ils n'aident.
+                {t("about.who.p1")}
               </p>
               <p className="text-gray-600 leading-relaxed">
-                C'est cette frustration qui m'a poussé à créer TraceField : pour apporter des solutions qui correspondent
-                vraiment aux besoins des professionnels de terrain.
+                {t("about.who.p2")}
               </p>
             </div>
           </Section>
@@ -99,12 +99,11 @@ export default function AboutPage() {
         <div className="container mx-auto max-w-4xl">
           <Section delay={0.2}>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-              Notre mission
+              {t("about.mission.title")}
             </h2>
             <div className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-red-600">
               <p className="text-xl text-gray-700 leading-relaxed">
-                Créer des solutions digitales qui collent vraiment à votre réalité. Pas de logiciel tout-fait qui vous oblige
-                à changer vos habitudes. On développe avec vous, pour vous, exactement ce dont vous avez besoin.
+                {t("about.mission.text")}
               </p>
             </div>
           </Section>
@@ -116,7 +115,7 @@ export default function AboutPage() {
         <div className="container mx-auto max-w-6xl">
           <Section delay={0.3}>
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-gray-900 text-center">
-              Notre approche
+              {t("about.approach.title")}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {approaches.map((approach, index) => (
@@ -143,15 +142,14 @@ export default function AboutPage() {
         <div className="container mx-auto max-w-4xl">
           <Section delay={0.4}>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-              Pourquoi nous faire confiance ?
+              {t("about.trust.title")}
             </h2>
             <div className="bg-white p-8 rounded-xl shadow-lg">
               <p className="text-xl text-gray-700 leading-relaxed mb-6">
-                Parce qu'on ne vend pas un logiciel, on résout vos problèmes.
+                {t("about.trust.p1")}
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Nos solutions sont déjà utilisées en conditions réelles et ont fait leurs preuves sur le terrain.
-                Chaque jour, des techniciens gagnent du temps et des entreprises optimisent leurs process grâce à nos outils.
+                {t("about.trust.p2")}
               </p>
             </div>
           </Section>
@@ -163,23 +161,23 @@ export default function AboutPage() {
         <div className="container mx-auto text-center max-w-3xl">
           <Section delay={0.5}>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Vous voulez en savoir plus ?
+              {t("about.cta.title")}
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Discutons de votre projet et voyons ensemble comment TraceField peut transformer votre quotidien.
+              {t("about.cta.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
                 className="bg-white text-red-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg"
               >
-                Prendre rendez-vous
+                {t("about.cta.ctaPrimary")}
               </Link>
               <Link
                 href="/solutions"
                 className="bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-red-800 transition-colors border-2 border-white"
               >
-                Découvrir nos solutions
+                {t("about.cta.ctaSecondary")}
               </Link>
             </div>
           </Section>

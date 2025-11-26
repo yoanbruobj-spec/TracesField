@@ -224,13 +224,6 @@ export default function SolutionsPage() {
       benefits: t("solutions.modules.module6.benefits"),
       color: "blue",
     },
-    {
-      title: t("solutions.modules.module7.title"),
-      problem: t("solutions.modules.module7.problem"),
-      solution: t("solutions.modules.module7.solution"),
-      benefits: t("solutions.modules.module7.benefits"),
-      color: "red",
-    },
   ];
 
   return (
@@ -256,7 +249,7 @@ export default function SolutionsPage() {
             >
               <span className="w-2 h-2 bg-purple-500 rounded-full animate-pulse" />
               <span className="text-sm font-medium text-gray-700">
-                7 modules personnalisables
+                6 modules personnalisables
               </span>
             </motion.div>
 

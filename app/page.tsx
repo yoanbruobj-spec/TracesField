@@ -15,7 +15,6 @@ import {
   BoxIcon,
   UsersIcon,
   ToolIcon,
-  GlobeIcon,
   AutomationIcon,
 } from "@/components/icons/Icons";
 import { AnimatedGridBackground, MeshGradientBackground, SpotlightEffect } from "@/components/AnimatedBackground";
@@ -399,8 +398,7 @@ export default function Home() {
               { icon: <BoxIcon className="text-blue-600" size={40} />, title: t("home.modules.module3"), color: "blue" },
               { icon: <UsersIcon className="text-red-600" size={40} />, title: t("home.modules.module4"), color: "red" },
               { icon: <ToolIcon className="text-purple-600" size={40} />, title: t("home.modules.module5"), color: "purple" },
-              { icon: <GlobeIcon className="text-blue-600" size={40} />, title: t("home.modules.module6"), color: "blue" },
-              { icon: <AutomationIcon className="text-red-600" size={40} />, title: t("home.modules.module7"), color: "red" },
+              { icon: <AutomationIcon className="text-blue-600" size={40} />, title: t("home.modules.module6"), color: "blue" },
             ].map((module, index) => (
               <motion.div
                 key={index}

@@ -42,15 +42,14 @@ export const fr = {
       button: "Demander une démo gratuite",
     },
     modules: {
-      title: "7 modules pour transformer votre activité",
+      title: "6 modules pour transformer votre activité",
       subtitle: "Choisissez uniquement les modules dont vous avez besoin. Commencez petit, évoluez à votre rythme.",
       module1: "Rapports d'intervention intelligents",
       module2: "Gestion de planning équipes",
       module3: "Gestion de stock avec QR",
       module4: "Suivi clients & contrats",
       module5: "Suivi matériel & consommables",
-      module6: "Site interne / Intranet",
-      module7: "Automatisation tâches répétitives",
+      module6: "Automatisation tâches répétitives",
       cta: "Découvrir tous les modules en détail",
     },
   },
@@ -103,7 +102,7 @@ export const fr = {
   solutions: {
     hero: {
       title: "Nos",
-      titleHighlight: "7 modules",
+      titleHighlight: "6 modules",
       subtitle: "Des solutions modulaires pour transformer votre activité. Choisissez uniquement ce dont vous avez besoin.",
     },
     modules: {
@@ -138,12 +137,6 @@ export const fr = {
         benefits: "Conformité totale, prévention des pannes, optimisation de la maintenance, sérénité réglementaire.",
       },
       module6: {
-        title: "Site interne / Intranet entreprise",
-        problem: "Infos dispersées, procédures introuvables, docs obsolètes, communication compliquée entre équipes.",
-        solution: "Portail interne sur-mesure : base documentaire, procédures accessibles, communication interne, tableau de bord de pilotage.",
-        benefits: "Information centralisée, onboarding facilité, autonomie des équipes, culture d'entreprise renforcée.",
-      },
-      module7: {
         title: "Automatisation de tâches répétitives",
         problem: "Relances manuelles, saisies multiples de la même info, copier-coller entre logiciels, temps perdu sur des tâches sans valeur.",
         solution: "Analyse de vos process, automatisation intelligente (emails, rappels, synchronisation de données, génération de documents), workflows personnalisés.",

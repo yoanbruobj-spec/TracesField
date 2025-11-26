@@ -83,7 +83,6 @@ export default function ContactPage() {
     t("home.modules.module4"),
     t("home.modules.module5"),
     t("home.modules.module6"),
-    t("home.modules.module7"),
     "Autre",
   ];
 

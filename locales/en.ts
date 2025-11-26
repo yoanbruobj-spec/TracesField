@@ -42,15 +42,14 @@ export const en = {
       button: "Request a free demo",
     },
     modules: {
-      title: "7 modules to transform your business",
+      title: "6 modules to transform your business",
       subtitle: "Choose only the modules you need. Start small, grow at your pace.",
       module1: "Smart intervention reports",
       module2: "Team schedule management",
       module3: "QR inventory management",
       module4: "Customer & contract tracking",
       module5: "Equipment & supplies tracking",
-      module6: "Internal site / Intranet",
-      module7: "Repetitive task automation",
+      module6: "Repetitive task automation",
       cta: "Discover all modules in detail",
     },
   },
@@ -103,7 +102,7 @@ export const en = {
   solutions: {
     hero: {
       title: "Our",
-      titleHighlight: "7 modules",
+      titleHighlight: "6 modules",
       subtitle: "Modular solutions to transform your business. Choose only what you need.",
     },
     modules: {
@@ -138,12 +137,6 @@ export const en = {
         benefits: "Total compliance, breakdown prevention, maintenance optimization, regulatory peace of mind.",
       },
       module6: {
-        title: "Internal site / Company intranet",
-        problem: "Scattered info, unfindable procedures, obsolete docs, complicated team communication.",
-        solution: "Custom internal portal: document base, accessible procedures, internal communication, management dashboard.",
-        benefits: "Centralized information, easier onboarding, team autonomy, strengthened company culture.",
-      },
-      module7: {
         title: "Repetitive task automation",
         problem: "Manual follow-ups, multiple entries of same info, copy-paste between software, time wasted on valueless tasks.",
         solution: "Process analysis, smart automation (emails, reminders, data sync, document generation), custom workflows.",

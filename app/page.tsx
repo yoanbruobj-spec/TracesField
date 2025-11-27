@@ -300,24 +300,6 @@ export default function Home() {
           style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
         >
           <div className="text-center max-w-6xl mx-auto">
-            {/* Animated badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 30, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/80 backdrop-blur-sm border border-red-200/50 mb-8 shadow-lg shadow-red-500/5"
-            >
-              <motion.span
-                className="w-2.5 h-2.5 bg-gradient-to-r from-red-500 to-red-600 rounded-full"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-              <span className="text-sm font-semibold text-gray-700 font-display">
-                Solutions digitales innovantes
-              </span>
-              <span className="text-xs px-2 py-0.5 bg-red-100 text-red-600 rounded-full font-bold">NEW</span>
-            </motion.div>
-
             {/* Main heading - EPIC */}
             <motion.h1
               initial={{ opacity: 0, y: 40 }}

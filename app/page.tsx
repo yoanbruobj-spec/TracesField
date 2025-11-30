@@ -299,7 +299,7 @@ export default function Home() {
           className="container mx-auto px-4 relative z-10"
           style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
         >
-          <div className="text-center max-w-6xl mx-auto">
+          <div className="text-center max-w-6xl mx-auto pt-16 md:pt-24">
             {/* Main heading - EPIC */}
             <motion.h1
               initial={{ opacity: 0, y: 40 }}

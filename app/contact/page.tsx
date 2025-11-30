@@ -191,40 +191,6 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Téléphone */}
-                <div className="group relative p-6 bg-white rounded-2xl border border-gray-100 hover:border-purple-500/20 transition-all duration-300 overflow-hidden">
-                  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-purple-500 to-purple-600" />
-                  <div className="relative">
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-8 h-8 rounded-full bg-purple-50 flex items-center justify-center">
-                        <div className="w-3 h-3 rounded-full bg-purple-500" />
-                      </div>
-                      <h3 className="font-bold text-gray-900">{t("contact.direct.phone")}</h3>
-                    </div>
-                    <a
-                      href="tel:0769806334"
-                      className="text-gray-600 hover:text-purple-600 transition-colors font-medium ml-11"
-                    >
-                      07 69 80 63 34
-                    </a>
-                  </div>
-                </div>
-
-                {/* Zone */}
-                <div className="group relative p-6 bg-white rounded-2xl border border-gray-100 hover:border-blue-500/20 transition-all duration-300 overflow-hidden">
-                  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-blue-600" />
-                  <div className="relative">
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center">
-                        <div className="w-3 h-3 rounded-full bg-blue-500" />
-                      </div>
-                      <h3 className="font-bold text-gray-900">{t("contact.direct.zone")}</h3>
-                    </div>
-                    <p className="text-gray-600 font-medium ml-11">
-                      {t("contact.direct.zoneValue")}
-                    </p>
-                  </div>
-                </div>
               </div>
 
               {/* Note de garantie */}
